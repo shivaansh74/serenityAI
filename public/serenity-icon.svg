@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circular background -->
+  <circle cx="256" cy="256" r="256" fill="#007AFF"/>
+  
+  <!-- Inner circle for depth -->
+  <circle cx="256" cy="256" r="200" fill="#FFFFFF" fill-opacity="0.1"/>
+  
+  <!-- Brain icon representing AI -->
+  <path d="M256 96C176.5 96 112 160.5 112 240H80l62.24 62.24 1.12 2.24L208 240h-48c0-61.92 50.08-112 112-112s112 50.08 112 112-50.08 112-112 112c-30.88 0-58.88-12.64-79.04-32.96l-22.72 22.72C195.2 367.52 224.5 384 256 384c79.5 0 144-64.5 144-144s-64.5-144-144-144zm-16 80v80l68.48 40.64 11.52-19.36-56-33.28V176h-24z" fill="white"/>
+  
+  <!-- Serene wave pattern -->
+  <path d="M144 352c48 32 96 32 144 0s96-32 144 0" stroke="white" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M160 384c40 24 80 24 120 0s80-24 120 0" stroke="white" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.4"/>
+</svg> 
