@@ -3,22 +3,58 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
   body {
-    @apply bg-background-light text-gray-800 antialiased;
+    @apply font-sans text-neutral-darkest bg-neutral-lightest;
+    overscroll-behavior: none;
+  }
+  
+  /* Mobile-friendly focus styles */
+  :focus {
+    @apply outline-none ring-2 ring-primary ring-opacity-50;
+  }
+  
+  /* Remove iOS input styles */
+  input, textarea {
+    appearance: none;
+    -webkit-appearance: none;
   }
 }
 
 @layer components {
-  .message-bubble {
-    @apply rounded-bubble shadow-message transition-all duration-200;
+  /* Mobile-friendly buttons */
+  .btn {
+    @apply px-4 py-3 rounded-lg font-medium transition-all duration-200 
+           active:scale-95 touch-manipulation focus:outline-none
+           focus:ring-2 focus:ring-offset-2 focus:ring-primary;
   }
-
-  .message-bubble:hover {
-    @apply shadow-lg;
+  
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-light;
   }
-
-  .input-field {
-    @apply bg-gray-50 border-0 focus:ring-2 focus:ring-primary/20;
+  
+  .btn-secondary {
+    @apply btn bg-secondary text-neutral-darkest hover:bg-secondary-light;
+  }
+  
+  .btn-outline {
+    @apply btn bg-transparent border border-primary text-primary hover:bg-primary-light hover:text-white;
+  }
+  
+  /* Mobile-friendly chat bubbles */
+  .chat-bubble {
+    @apply max-w-[85%] sm:max-w-[80%] md:max-w-[75%] px-4 py-3 rounded-2xl;
+  }
+  
+  .chat-bubble-user {
+    @apply chat-bubble bg-primary text-white ml-auto rounded-br-none;
+  }
+  
+  .chat-bubble-ai {
+    @apply chat-bubble bg-neutral-light text-neutral-darkest mr-auto rounded-bl-none;
   }
 }
 
@@ -62,4 +98,34 @@
 
 .typing-dot:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+@layer utilities {
+  /* Safe area utilities for iOS */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  /* Prevent rubber band scrolling */
+  .no-bounce {
+    overscroll-behavior: none;
+  }
+  
+  /* Touch-friendly tappable area */
+  .tap-area {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+/* Handle viewport height issues on mobile */
+:root {
+  --vh: 1vh;
+}
+
+.h-screen-dynamic {
+  height: calc(var(--vh) * 100);
 }
